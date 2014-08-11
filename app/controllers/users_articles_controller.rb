@@ -7,30 +7,29 @@ class UsersArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-  	@article = Article.new(article_params)
-  	@article.user = current_user
+  	@article = current_user.articles.create(article_params)
  
   	if @article.save
-  	  redirect_to @article
+  	  redirect_to :action => 'show', :id => @article.id
   	else
       render 'new'
     end
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
 
     if @article.update(article_params)
       redirect_to users_articles_path
@@ -40,7 +39,7 @@ class UsersArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     @article.destroy
 
     redirect_to users_articles_path    

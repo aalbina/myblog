@@ -24,27 +24,26 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6">
 				<h2 class="text-center">Comments:</h2>
 
 				<% if @article.comments.exists? %>
 
 				<% else %>
 					<p class="text-16">
-						This article has no comments.
+						This article has no comments. Maybe you want add first?
 					</p>
+					<%= render :partial => 'source/form_comment_new' %>
 				<% end %>
 			</div>	
 		</div>
 		
 	</div>
 
-	<div class="col-md-3">
-		<p>Users: <%= User.count %> registered</p>
-
-		  <p><%= link_to 'Sign up', new_user_registration_path, :class => 'btn btn-primary btn-xs' %></p>
-		  <p><%= link_to 'Sign in', new_user_session_path, :class => 'btn btn-primary btn-xs' %></p>
-		  <p><%= link_to 'Show my articles', users_articles_path, :class => 'btn btn-primary btn-xs' %></p>
-	</div>
+	<% if @logined %>
+		<%= render :partial => 'source/logined_user' %>
+	<% else %>
+		<%= render :partial => 'source/unlogined_user' %>
+	<% end %>
 	
 </div>

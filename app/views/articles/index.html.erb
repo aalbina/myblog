@@ -19,12 +19,10 @@
 		</ul>
 	</div>
 
-	<div class="col-md-3">
-
-		<p>Users: <%= User.count %> registered</p>
-
-		  <p><%= link_to 'Sign up', new_user_registration_path, :class => 'btn btn-primary btn-xs' %></p>
-		  <p><%= link_to 'Sign in', new_user_session_path, :class => 'btn btn-primary btn-xs' %></p>
-		  <p><%= link_to 'Show my articles', users_articles_path, :class => 'btn btn-primary btn-xs' %></p>
-	</div>
+	<% if @logined %>
+		<%= render :partial => 'source/logined_user' %>
+	<% else %>
+		<%= render :partial => 'source/unlogined_user' %>
+	<% end %>
+	
 </div>

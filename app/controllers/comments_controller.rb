@@ -1,9 +1,19 @@
 class CommentsController < ApplicationController
 
-	private 
-	    def check_user
-	      if (user_signed_in?)
-	        redirect_to :users_articles
-	      end
-	    end
+	def create
+		@comment = Comments.new(comment_params)
+
+		if (@comment.valid?)
+			@comment.user = current_user
+			@comment.save
+		else
+			# render ''
+		end		
+	end
+
+	private
+    def comment_params
+      params.require(:comment).permit(:title, :body)
+    end
+
 end
