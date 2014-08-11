@@ -1,0 +1,30 @@
+<div class="row">
+	<h1 class="text-center">Hello!</h1>
+</div>
+
+<div class="row">
+	<div class="col-md-8">
+		<ul class="list-unstyled">
+
+		  <% @articles.each do |article|%>
+
+		    <li>
+		      <h2><%= article.title %></h2>
+		      <p class="text-16"><%= article.body %></p>
+		      <%= link_to 'Show', article, :class => 'btn btn-primary btn-xs' %>
+		    </li>
+
+		  <% end %>
+
+		</ul>
+	</div>
+
+	<div class="col-md-3">
+
+		<p>Users: <%= User.count %> registered</p>
+
+		  <p><%= link_to 'Sign up', new_user_registration_path, :class => 'btn btn-primary btn-xs' %></p>
+		  <p><%= link_to 'Sign in', new_user_session_path, :class => 'btn btn-primary btn-xs' %></p>
+		  <p><%= link_to 'Show my articles', users_articles_path, :class => 'btn btn-primary btn-xs' %></p>
+	</div>
+</div>
