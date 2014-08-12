@@ -18,7 +18,7 @@ gem 'devise'
 
 gem "twitter-bootstrap-rails"
 
-group: :production do
+group :production do
 	gem 'rails_12factor'
 	gem 'pg'
 end
