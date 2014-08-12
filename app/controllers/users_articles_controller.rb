@@ -32,7 +32,7 @@ class UsersArticlesController < ApplicationController
     @article = current_user.articles.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to users_articles_path(@article)
+      redirect_to users_article_path(@article)
     else
       render 'edit'
     end
