@@ -28015,3 +28015,585 @@ Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:00:40 +0
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:00:40 +0400
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-08-13 22:02:32 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mArticle Load (0.6ms)[0m  SELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = ?  ORDER BY "articles"."id" DESC  [["user_id", 1]]
+  Rendered source/_users_articles.html.erb (3.2ms)
+  Rendered users_articles/index.html.erb within layouts/application (128.0ms)
+Completed 200 OK in 224ms (Views: 156.6ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/users_articles/14" for 127.0.0.1 at 2014-08-13 22:02:35 +0400
+Processing by UsersArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qDxM8HrfvZsACWvyZzQzRHMlySYzEtiOP8e/lhGkqZc=", "id"=>"14"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.9ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 1], ["id", 14]]
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."article_id" = ?  [["article_id", 14]]
+  [1m[36mSQL (9.0ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 4]]
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 14]]
+  [1m[36m (136.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users_articles
+Completed 302 Found in 197ms (ActiveRecord: 150.7ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-08-13 22:02:35 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mArticle Load (0.4ms)[0m  SELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = ?  ORDER BY "articles"."id" DESC  [["user_id", 1]]
+  Rendered source/_users_articles.html.erb (2.7ms)
+  Rendered users_articles/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 46ms (Views: 39.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:36 +0400
+
+
+Started DELETE "/users_articles/10" for 127.0.0.1 at 2014-08-13 22:02:38 +0400
+Processing by UsersArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qDxM8HrfvZsACWvyZzQzRHMlySYzEtiOP8e/lhGkqZc=", "id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 1], ["id", 10]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."article_id" = ?  [["article_id", 10]]
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 10]]
+  [1m[35m (75.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/users_articles
+Completed 302 Found in 96ms (ActiveRecord: 78.4ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-08-13 22:02:38 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = ?  ORDER BY "articles"."id" DESC[0m  [["user_id", 1]]
+  Rendered source/_users_articles.html.erb (1.1ms)
+  Rendered users_articles/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 41ms (Views: 33.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:39 +0400
+
+
+Started DELETE "/users_articles/5" for 127.0.0.1 at 2014-08-13 22:02:41 +0400
+Processing by UsersArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qDxM8HrfvZsACWvyZzQzRHMlySYzEtiOP8e/lhGkqZc=", "id"=>"5"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = ? AND "articles"."id" = ? LIMIT 1[0m  [["user_id", 1], ["id", 5]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 5]]
+  [1m[36m (110.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users_articles
+Completed 302 Found in 134ms (ActiveRecord: 112.2ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-08-13 22:02:41 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = ?  ORDER BY "articles"."id" DESC  [["user_id", 1]]
+  Rendered source/_users_articles.html.erb (1.3ms)
+  Rendered users_articles/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 42ms (Views: 34.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:42 +0400
+
+
+Started DELETE "/users_articles/4" for 127.0.0.1 at 2014-08-13 22:02:44 +0400
+Processing by UsersArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qDxM8HrfvZsACWvyZzQzRHMlySYzEtiOP8e/lhGkqZc=", "id"=>"4"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = ? AND "articles"."id" = ? LIMIT 1  [["user_id", 1], ["id", 4]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."article_id" = ?  [["article_id", 4]]
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  [1m[35m (217.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/users_articles
+Completed 302 Found in 325ms (ActiveRecord: 220.0ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-08-13 22:02:45 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = ?  ORDER BY "articles"."id" DESC[0m  [["user_id", 1]]
+  Rendered source/_users_articles.html.erb (1.1ms)
+  Rendered users_articles/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 41ms (Views: 33.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:45 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:46 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:46 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:46 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:46 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:46 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:46 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:46 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:46 +0400
+
+
+Started DELETE "/users_articles/3" for 127.0.0.1 at 2014-08-13 22:02:47 +0400
+Processing by UsersArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qDxM8HrfvZsACWvyZzQzRHMlySYzEtiOP8e/lhGkqZc=", "id"=>"3"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = ? AND "articles"."id" = ? LIMIT 1[0m  [["user_id", 1], ["id", 3]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."article_id" = ?[0m  [["article_id", 3]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 3]]
+  [1m[36m (176.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users_articles
+Completed 302 Found in 197ms (ActiveRecord: 178.2ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-08-13 22:02:48 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  Rendered source/_users_articles.html.erb (1.2ms)
+  Rendered users_articles/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 37ms (Views: 30.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:48 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:02:48 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:48 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:48 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:49 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:49 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:49 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:49 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:02:49 +0400
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-08-13 22:02:59 +0400
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.6ms)[0m  [1mSELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC[0m
+  Rendered source/_logined_user.html.erb (3.2ms)
+  Rendered articles/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 49ms (Views: 41.0ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-08-13 22:03:00 +0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qDxM8HrfvZsACWvyZzQzRHMlySYzEtiOP8e/lhGkqZc="}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 127ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-13 22:03:01 +0400
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.6ms)[0m  [1mSELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered source/_unlogined_user.html.erb (5.8ms)
+  Rendered articles/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 51ms (Views: 35.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:02 +0400
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-08-13 22:03:06 +0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (4.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (98.9ms)
+Completed 200 OK in 150ms (Views: 145.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-08-13 22:03:13 +0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"akjQ6BxhK3smV8xmsj01V32VaXPnCw1GodE9R9El1Hc=", "user"=>{"email"=>"1234@exd.ru", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = '1234@exd.ru'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 2[0m  [["current_sign_in_at", "2014-08-13 18:03:13.770636"], ["sign_in_count", 2], ["updated_at", "2014-08-13 18:03:13.774338"]]
+  [1m[35m (74.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 260ms (ActiveRecord: 76.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-13 22:03:13 +0400
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.7ms)[0m  SELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC
+  Rendered source/_logined_user.html.erb (1.2ms)
+  Rendered articles/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 37ms (Views: 30.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:14 +0400
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-08-13 22:03:17 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = ?  ORDER BY "articles"."id" DESC[0m  [["user_id", 2]]
+  Rendered source/_users_articles.html.erb (5.5ms)
+  Rendered users_articles/index.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 59ms (Views: 46.5ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/users_articles/16" for 127.0.0.1 at 2014-08-13 22:03:19 +0400
+Processing by UsersArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TqcqmY6yJc2BunAFEpWB/sKmWv4HxjH7PIMh1N2D/p4=", "id"=>"16"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = ? AND "articles"."id" = ? LIMIT 1[0m  [["user_id", 2], ["id", 16]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."article_id" = ?[0m  [["article_id", 16]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 16]]
+  [1m[36m (167.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users_articles
+Completed 302 Found in 192ms (ActiveRecord: 169.4ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-08-13 22:03:19 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  Rendered source/_users_articles.html.erb (1.3ms)
+  Rendered users_articles/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 51ms (Views: 44.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:20 +0400
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-08-13 22:03:22 +0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TqcqmY6yJc2BunAFEpWB/sKmWv4HxjH7PIMh1N2D/p4="}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-13 22:03:22 +0400
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered source/_unlogined_user.html.erb (3.4ms)
+  Rendered articles/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:23 +0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-13 22:03:34 +0400
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered source/_unlogined_user.html.erb (3.6ms)
+  Rendered articles/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:35 +0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-13 22:03:51 +0400
+Processing by ArticlesController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered source/_unlogined_user.html.erb (3.5ms)
+  Rendered articles/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 46ms (Views: 42.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:03:52 +0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-13 22:04:03 +0400
+Processing by ArticlesController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered source/_unlogined_user.html.erb (5.6ms)
+  Rendered articles/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 52ms (Views: 48.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-13 22:04:03 +0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-13 22:04:03 +0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-13 22:04:03 +0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-13 22:04:03 +0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-13 22:04:03 +0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-13 22:04:03 +0400
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-08-13 22:04:04 +0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-13 22:04:04 +0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-13 22:04:04 +0400
