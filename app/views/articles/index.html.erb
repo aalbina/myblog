@@ -4,19 +4,22 @@
 
 <div class="row">
   <div class="col-md-8">
+    <% if @articles != nil %>
       <ul class="list-unstyled">
-
         <% @articles.each do |article|%>
 
           <li>
-		    <h2><%= article.title %></h2>
-		    <p class="text-16"><%= article.body %></p>
-		    <%= link_to 'Show', article, :class => 'btn btn-primary btn-xs' %>
+		        <h2><%= article.title %></h2>
+		        <p class="text-16"><%= article.body %></p>
+		        <%= link_to 'Show', article, :class => 'btn btn-primary btn-xs' %>
           </li>
 
-	    <% end %>
-
+	      <% end %>  
       </ul>
+    <% else %>
+      <p class="text-16">We have no articles now :(</p>
+      <%= link_to 'Create first?', new_user_registration_path, :class => 'btn btn-primary btn-lg btn-block' %>
+    <% end %>
   </div>
 
   <% if @logined %>
