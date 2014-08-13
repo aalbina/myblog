@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   def index
     @articles = Article.all.order(id: :desc)
     @logined = user_signed_in?
@@ -8,6 +7,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @logined = user_signed_in?
+    @comment = Comment.new
   end
 
 end

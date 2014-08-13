@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users
+  resources :users_articles
   
-  resources :users_articles do
+  resources :articles, only: [:index, :show] do
     resources :comments
   end
 
@@ -14,8 +15,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'articles#index'
 
-  get 'articles' => 'articles#index'
-  get 'articles/:id' => 'articles#show', :as => 'article'
+  # get 'articles' => 'articles#index'
+  # get 'articles/:id' => 'articles#show', :as => 'article'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

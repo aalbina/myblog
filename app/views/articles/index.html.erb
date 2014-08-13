@@ -1,28 +1,28 @@
 <div class="row">
-	<h1 class="text-center">Hello!</h1>
+  <h1 class="text-center">Hello!</h1>
 </div>
 
 <div class="row">
-	<div class="col-md-8">
-		<ul class="list-unstyled">
+  <div class="col-md-8">
+      <ul class="list-unstyled">
 
-		  <% @articles.each do |article|%>
+        <% @articles.each do |article|%>
 
-		    <li>
-		      <h2><%= article.title %></h2>
-		      <p class="text-16"><%= article.body %></p>
-		      <%= link_to 'Show', article, :class => 'btn btn-primary btn-xs' %>
-		    </li>
+          <li>
+		    <h2><%= article.title %></h2>
+		    <p class="text-16"><%= article.body %></p>
+		    <%= link_to 'Show', article, :class => 'btn btn-primary btn-xs' %>
+          </li>
 
-		  <% end %>
+	    <% end %>
 
-		</ul>
-	</div>
+      </ul>
+  </div>
 
-	<% if @logined %>
-		<%= render :partial => 'source/logined_user' %>
-	<% else %>
-		<%= render :partial => 'source/unlogined_user' %>
-	<% end %>
+  <% if @logined %>
+    <%= render :partial => 'source/logined_user' %>
+  <% else %>
+    <%= render :partial => 'source/unlogined_user' %>
+  <% end %>
 	
 </div>

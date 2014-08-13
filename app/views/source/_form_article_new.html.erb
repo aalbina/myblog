@@ -2,11 +2,11 @@
 
   <% if @article.errors.any? %>
 
-      <% @article.errors.full_messages.each do |message| %>
-        <p  class="bg-danger message"> 
-          <%= message %>
-        </p>
-      <% end %>
+    <% @article.errors.full_messages.each do |message| %>
+      <p  class="bg-danger message"> 
+        <%= message %>
+      </p>
+    <% end %>
 
   <% end %>
 
