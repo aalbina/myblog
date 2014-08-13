@@ -15,4 +15,32 @@
  *= require bootstrap
  */
 
- @import "common.css";
+body {
+	background-color: #ddd !important;
+}
+
+.col-md-8, .col-md-6, .col-md-3 {
+	background-color: #999;
+	border-radius: 4px;
+	margin: 5px;
+	padding: 10px;
+}
+
+.text-16 {
+	font-size: 16px;
+}
+
+.text-12 {
+	font-size: 12px;
+}
+
+.btn-xs {
+	margin: 5px;
+}
+
+.message {
+	margin-top: 10px;
+	border-radius: 4px;
+	padding: 0 15px 0;
+	font-size: 16px;
+}
