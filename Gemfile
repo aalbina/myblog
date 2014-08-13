@@ -15,7 +15,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'devise'
-gem 'byebug'
 
 gem "twitter-bootstrap-rails"
 
@@ -25,4 +24,4 @@ group :production do
 	gem 'unicorn'
 end
 
-# ruby "2.1.2"
+ruby "2.1.2"
