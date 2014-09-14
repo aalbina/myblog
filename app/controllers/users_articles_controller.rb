@@ -5,16 +5,16 @@ class UsersArticlesController < ApplicationController
   expose(:article, attributes: :article_params)
 
   def index
-  	@user = current_user
+    @user = current_user
   end
 
   def show
   end
 
   def create
-  	if article.save
-  	  redirect_to :action => 'show', :id => article.id
-  	else
+    if article.save
+      redirect_to :action => 'show', :id => article.id
+    else
       render :new
     end
   end
@@ -30,12 +30,12 @@ class UsersArticlesController < ApplicationController
   def destroy
     article.destroy
 
-    redirect_to users_articles_path    
+    redirect_to users_articles_path
   end
 
   private
+
     def article_params
       params.require(:article).permit(:title, :body)
     end
-
 end

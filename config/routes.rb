@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :users_articles
-  
-  resources :articles, only: [:index, :show], controller: 'dashboard' do
+
+  resources :articles, only: %i(index show), controller: 'dashboard' do
     resources :comments
   end
 end
