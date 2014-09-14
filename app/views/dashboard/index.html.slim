@@ -1,0 +1,22 @@
+.row
+  h1.text-center Hello!
+
+.row
+  .col-md-8
+    - if !articles.empty? 
+      ul.list-unstyled
+        - articles.each do |article|
+
+          li
+		      h2 =article.title 
+		      p.text-16 =article.body
+		      = link_to 'Show', article, :class => 'btn btn-primary btn-xs' 
+    - else 
+      p class=["text-16", "text-center"] 
+        We have no articles now :(
+      = link_to 'Create first?', new_user_registration_path, :class => 'btn btn-primary btn-lg btn-block' 
+
+  - if @logined 
+    = render :partial => 'source/logined_user'
+  - else 
+    = render :partial => 'source/unlogined_user'

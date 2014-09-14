@@ -4,9 +4,9 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+Bundler.require(:default, Rails.env)
 
-module Myblog
+module RailsBase
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -19,5 +19,16 @@ module Myblog
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Application specific options
+
+    # Slim engine default option, initializers/slim.rb
+    config.slim_options = {}
+
+    # Default e-mail address which will be shown in the "from" devise emails, initializers/devise.rb,
+    config.noreply = 'noreply@fs-rails-base.heroku.com'
+
+    # Default host for action mailer, initializers/mailer.rb
+    config.host = 'localhost:5000'
   end
 end
