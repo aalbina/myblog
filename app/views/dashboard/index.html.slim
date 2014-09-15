@@ -1,17 +1,19 @@
 .row
-  h1.text-center Hello!
+  .columns
+    h2.blue All articles
 
 .row
-  .col-md-8
+  .medium-6.columns
     - if !articles.empty? 
       ul.list-unstyled
         - articles.each do |article|
 
           li
-		      h2 =article.title 
-		      p.text-16 =article.body
-		      = link_to 'Show', article, :class => 'btn btn-primary btn-xs' 
+		        h3.blue = link_to article.title, article 
+		        p.text-16 =article.body
+		        = link_to 'Show', article
+          br 
     - else 
-      p class=["text-16", "text-center"] 
-        We have no articles now :(
-      = link_to 'Create first?', new_user_registration_path, :class => 'btn btn-primary btn-lg btn-block'
+      p.text-16 We have no articles now :(
+      
+      = link_to 'Create first?', new_user_registration_path, class: 'button expand'

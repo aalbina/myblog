@@ -2,6 +2,14 @@ body {
 	background-color: #ddd !important;
 }
 
+.blue {
+	color: #008cba;
+}
+
+.red {
+	color: red;
+}
+
 .text-16 {
 	font-size: 16px;
 }
@@ -10,6 +18,14 @@ body {
 	font-size: 12px;
 }
 
-.btn-xs {
-	margin: 5px;
+.list-unstyled {
+	list-style: none;
+}
+
+.btn_back {
+	font-size: 45px;
+}
+
+.btn_xs {
+	margin: 5px;	
 }

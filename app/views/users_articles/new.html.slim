@@ -1,7 +1,9 @@
 .row
-  div class=["col-md-6", "col-md-offset-3"]
+  .medium-1.columns
+    = link_to '<', users_articles_path, class: 'btn_back'
+  .medium-11.columns
+    h2.blue New article
 
-    h1.text-center New article
-
-    = render :partial => 'source/form_article_new'
-    = link_to 'Back', users_articles_path, :class => 'btn btn-primary btn-xs'
+.row
+  .medium-6.columns
+    = render partial: 'source/form_article_new'

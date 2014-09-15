@@ -1,14 +1,13 @@
 = form_for [article, @comment] do |f| 
 
-  - if @comment.errors.any? 
-    - @comment.errors.full_messages.each do |message| 
-      p class=["bg-danger", "message"]
-        = message 
+  - if @comment.errors.any?
+    ul 
+      - @comment.errors.full_messages.each do |message| 
+        li.red
+          = message 
     
   h3 Create new comment
-  .form-group
-    = f.label :body, :class => 'text-16'
-    = f.text_area :body, :class => 'form-control', :rows => 10
+  = f.label :body, 'Comment text', class: 'text-16'
+  = f.text_area :body, rows: 10
 
-  .actions
-    = f.submit :class => 'btn btn-primary btn-lg btn-block'
+  = f.submit class: 'button [secondary]'

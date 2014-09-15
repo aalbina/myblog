@@ -1,25 +1,25 @@
 .row
-  h1.text-center Hello, #{@user}
+  .columns
+    h2.blue #{@user}'s articles
 
 .row
-  .col-md-8
+  .medium-6.columns
   	- if articles.exists?
       ul.list-unstyled
         - articles.each do |article|
           li
-            h2 =article.title
+            h3.blue = link_to article.title, article
             p.text-16 =article.body
 
             span
-              = link_to 'Show', users_article_path(article), :class => 'btn btn-primary btn-xs'
-            |
+              = link_to 'Show', users_article_path(article), class: 'btn_xs'
             span
-              = link_to 'Edit', edit_users_article_path(article), :class => 'btn btn-primary btn-xs' 
-            |
+              = link_to 'Edit', edit_users_article_path(article), class: 'btn_xs'
             span
-              = link_to 'Delete', users_article_path(article), method: :delete, data: {confirm: "Are you sure?"}, :class => 'btn btn-primary btn-xs'
+              = link_to 'Delete', users_article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn_xs'
+          br
 
     - else
-      p class=["text-16", "text-center"] 
-        You have no articles now :(
-	    = link_to 'Create first?', new_users_article_path, :class => 'btn btn-primary btn-lg btn-block'
+      p.text-16 You have no articles now :(
+	    
+      = link_to 'Create first?', new_users_article_path, class: 'button expand'

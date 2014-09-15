@@ -1,38 +1,30 @@
 .row
-  h1.text-center Hello!
+  .medium-1.columns
+    = link_to '<', articles_path, class: 'btn_back'
+  .medium-11.columns
+    h2.blue =article.title
 
 .row
-  .col-md-8
-    .row 
-      .col-md-10
-        h2 =article.title
-      .col-md-2
-        = link_to 'Back', articles_path, :class => 'btn btn-primary btn-xs'
+  .medium-6.columns
+    p.text-16 =article.body
+    p.text-12 Created at #{article.created_at} by #{article.user}
 
-    .row 
-      .col-md-12
-        p.text-16 =article.body
-        p.text-12 Created at #{article.created_at} by #{article.user}
+.row
+  .medium-6.columns
+    h2 Comments:
+    - if article.comments.exists?
+      - article.comments.each do |comment|
+        - if comment.valid? 
+          blockquote
+            p.text-16 =comment.body
+            cite 
+              =comment.user
+            - if (current_user && comment.user_id == current_user.id) 
+              = link_to 'Delete comment', article_comment_path(article.id, comment.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn_xs'
 
-    .row
-      .col-md-6
-        h2.text-center Comments:
-        - if article.comments.exists?
-          - article.comments.each do |comment|
-            - if comment.valid? 
-              blockquote
-                .row 
-                  .col-md-10
-                    p.text-16 =comment.body
-                  - if (current_user && comment.user_id == current_user.id) 
-                    .col-md-2
-                      = link_to 'Delete', article_comment_path(article.id, comment.id), method: :delete, data: {confirm: "Are you sure?"}, :class => 'btn btn-primary btn-xs'
-                footer by =comment.user
+    - else 
+      p.text-16 This article has no comments. Maybe you want add first?
 
-        - else 
-          p.text-16
-            This article has no comments. Maybe you want add first?
-
-    .row
-      .col-md-5
-        = render :partial => 'source/form_comment_new'
+.row
+  .medium-6.columns
+    = render partial: 'source/form_comment_new'
