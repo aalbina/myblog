@@ -13,7 +13,7 @@ class UsersArticlesController < ApplicationController
 
   def create
     if article.save
-      redirect_to :action => 'show', :id => article.id
+      redirect_to action: 'show', id: article.id
     else
       render :new
     end
@@ -35,7 +35,7 @@ class UsersArticlesController < ApplicationController
 
   private
 
-    def article_params
-      params.require(:article).permit(:title, :body)
-    end
+  def article_params
+    params.require(:article).permit(:title, :body)
+  end
 end

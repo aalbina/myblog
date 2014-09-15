@@ -83,6 +83,8 @@ en:
     navigation:
       main:
         dashboard: 'Dashboard'
+        my_articles: 'My Articles'
+        new_article: 'New Article'
       user:
         sign_in: 'Sign in'
         sign_out: 'Sign out'

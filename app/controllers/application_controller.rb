@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
-  def after_sign_in_path_for
+  def after_sign_in_path_for(*)
     users_articles_path
   end
 end

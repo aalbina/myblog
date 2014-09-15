@@ -14,9 +14,4 @@
     - else 
       p class=["text-16", "text-center"] 
         We have no articles now :(
-      = link_to 'Create first?', new_user_registration_path, :class => 'btn btn-primary btn-lg btn-block' 
-
-  - if @logined 
-    = render :partial => 'source/logined_user'
-  - else 
-    = render :partial => 'source/unlogined_user'
+      = link_to 'Create first?', new_user_registration_path, :class => 'btn btn-primary btn-lg btn-block'
