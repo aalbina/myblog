@@ -11061,3 +11061,447 @@ Processing by DashboardController#index as HTML
   Rendered application/_messages.html.slim (0.5ms)
   Rendered application/_footer.html.slim (0.3ms)
 Completed 200 OK in 92ms (Views: 88.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 09:17:08 +0400
+  [1m[36mActiveRecord::SchemaMigration Load (18.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+  [1m[35m (22.9ms)[0m  SELECT COUNT(*) FROM "articles"
+  Rendered dashboard/index.html.slim within layouts/application (142.7ms)
+  Rendered application/_navigation_main.html.slim (21.0ms)
+  Rendered application/_navigation_user.html.slim (169.4ms)
+  Rendered application/_navigation.html.slim (217.7ms)
+  Rendered application/_messages.html.slim (9.8ms)
+  Rendered application/_footer.html.slim (8.1ms)
+Completed 200 OK in 1100ms (Views: 1043.2ms | ActiveRecord: 54.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-17 09:17:17 +0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.slim (18.1ms)
+  Rendered devise/sessions/new.html.slim within layouts/application (208.1ms)
+  Rendered application/_navigation_main.html.slim (1.0ms)
+  Rendered application/_navigation_user.html.slim (2.4ms)
+  Rendered application/_navigation.html.slim (21.1ms)
+  Rendered application/_messages.html.slim (0.4ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 360ms (Views: 294.1ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-09-17 09:17:26 +0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlbE12HnZmjFLFlfLW5syCc13A6MbpGb/gBXmUqxDPc=", "user"=>{"email"=>"aalmukhametova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (74.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'aalmukhametova@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 401 Unauthorized in 103ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlbE12HnZmjFLFlfLW5syCc13A6MbpGb/gBXmUqxDPc=", "user"=>{"email"=>"aalmukhametova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.slim (2.5ms)
+  Rendered devise/sessions/new.html.slim within layouts/application (27.4ms)
+  Rendered application/_navigation_main.html.slim (0.4ms)
+  Rendered application/_navigation_user.html.slim (1.9ms)
+  Rendered application/_navigation.html.slim (18.1ms)
+  Rendered application/_messages.html.slim (0.7ms)
+  Rendered application/_footer.html.slim (0.8ms)
+Completed 200 OK in 228ms (Views: 107.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-09-17 09:17:30 +0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.slim (3.4ms)
+  Rendered devise/registrations/new.html.slim within layouts/application (50.9ms)
+  Rendered application/_navigation_main.html.slim (1.1ms)
+  Rendered application/_navigation_user.html.slim (2.0ms)
+  Rendered application/_navigation.html.slim (22.3ms)
+  Rendered application/_messages.html.slim (0.4ms)
+  Rendered application/_footer.html.slim (0.8ms)
+Completed 200 OK in 151ms (Views: 143.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-17 09:17:44 +0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlbE12HnZmjFLFlfLW5syCc13A6MbpGb/gBXmUqxDPc=", "user"=>{"full_name"=>"Albina", "email"=>"aalmukhametova@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mUser Exists (1.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'aalmukhametova@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'f3f8969b4fba9a9b092c9faeadfc5754137f4e2fa0fb462a5285ba7ca65fbd95'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSQL (70.2ms)[0m  [1mINSERT INTO "users" ("confirmation_sent_at", "confirmation_token", "created_at", "email", "encrypted_password", "full_name", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["confirmation_sent_at", "2014-09-17 05:17:45.022929"], ["confirmation_token", "f3f8969b4fba9a9b092c9faeadfc5754137f4e2fa0fb462a5285ba7ca65fbd95"], ["created_at", "2014-09-17 05:17:44.332188"], ["email", "aalmukhametova@gmail.com"], ["encrypted_password", "$2a$10$d9UtykfH53lBWQPAaGP6Z.aWQ8USdy5du2MeQWIyznHh/hyNqBANG"], ["full_name", "Albina"], ["updated_at", "2014-09-17 05:17:44.332188"]]
+  Rendered devise/mailer/confirmation_instructions.html.slim (11.0ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 63.1ms
+
+Sent mail to aalmukhametova@gmail.com (79.6ms)
+Date: Wed, 17 Sep 2014 09:17:45 +0400
+From: noreply@fs-rails-base.heroku.com
+Reply-To: noreply@fs-rails-base.heroku.com
+To: aalmukhametova@gmail.com
+Message-ID: <5419197931323_1a353fdd1fc7332818765@albina-HP-Pavilion-dm1-Notebook-PC.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome Albina!
+</p>
+<p>
+  You can confirm your account email through the link below:
+</p>
+<p>
+  <a href="http://localhost:5000/users/confirmation?confirmation_token=xoHxymKgaHLdPTzwwnXm">Confirm my account</a>
+</p>
+  [1m[35m (13.1ms)[0m  COMMIT
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "current_sign_in_ip" = $2, "last_sign_in_at" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 4  [["current_sign_in_at", "2014-09-17 05:17:45.293173"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2014-09-17 05:17:45.293173"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2014-09-17 05:17:45.300928"]]
+  [1m[36m (9.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:5000/users_articles
+Completed 302 Found in 1200ms (ActiveRecord: 101.7ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-09-17 09:17:45 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Exists (5.0ms)[0m  [1mSELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  Rendered users_articles/index.html.slim within layouts/application (58.6ms)
+  Rendered application/_navigation_main.html.slim (3.5ms)
+  Rendered application/_navigation_user.html.slim (43.1ms)
+  Rendered application/_navigation.html.slim (62.8ms)
+  Rendered application/_messages.html.slim (1.2ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 207ms (Views: 191.5ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/users_articles/new" for 127.0.0.1 at 2014-09-17 09:17:50 +0400
+Processing by UsersArticlesController#new as HTML
+  [1m[35mUser Load (14.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered source/_form_article_new.html.slim (105.2ms)
+  Rendered users_articles/new.html.slim within layouts/application (142.9ms)
+  Rendered application/_navigation_main.html.slim (7.1ms)
+  Rendered application/_navigation_user.html.slim (1.2ms)
+  Rendered application/_navigation.html.slim (56.3ms)
+  Rendered application/_messages.html.slim (4.9ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 396ms (Views: 363.3ms | ActiveRecord: 14.5ms)
+
+
+Started POST "/users_articles" for 127.0.0.1 at 2014-09-17 09:18:02 +0400
+Processing by UsersArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlbE12HnZmjFLFlfLW5syCc13A6MbpGb/gBXmUqxDPc=", "article"=>{"title"=>"123434557", "body"=>"errthygukihj"}, "commit"=>"Сохранить"}
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (11.5ms)[0m  [1mINSERT INTO "articles" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "errthygukihj"], ["created_at", "2014-09-17 05:18:02.414435"], ["title", "123434557"], ["updated_at", "2014-09-17 05:18:02.414435"], ["user_id", 4]]
+  [1m[35m (63.4ms)[0m  COMMIT
+Redirected to http://localhost:5000/users_articles/7
+Completed 302 Found in 109ms (ActiveRecord: 77.8ms)
+
+
+Started GET "/users_articles/7" for 127.0.0.1 at 2014-09-17 09:18:02 +0400
+Processing by UsersArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (1.5ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = $1 AND "articles"."id" = $2  ORDER BY "articles"."id" DESC LIMIT 1  [["user_id", 4], ["id", 7]]
+  Rendered users_articles/show.html.slim within layouts/application (33.3ms)
+  Rendered application/_navigation_main.html.slim (2.3ms)
+  Rendered application/_navigation_user.html.slim (1.3ms)
+  Rendered application/_navigation.html.slim (15.6ms)
+  Rendered application/_messages.html.slim (0.4ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 114ms (Views: 101.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 09:18:14 +0400
+Processing by DashboardController#index as HTML
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+  [1m[35mArticle Load (1.5ms)[0m  SELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC
+  Rendered dashboard/index.html.slim within layouts/application (10.9ms)
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered application/_navigation_main.html.slim (11.8ms)
+  Rendered application/_navigation_user.html.slim (2.5ms)
+  Rendered application/_navigation.html.slim (25.9ms)
+  Rendered application/_messages.html.slim (0.3ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 92ms (Views: 86.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-09-17 09:18:27 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mArticle Load (1.3ms)[0m  SELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = $1  ORDER BY "articles"."id" DESC  [["user_id", 4]]
+  Rendered users_articles/index.html.slim within layouts/application (20.5ms)
+  Rendered application/_navigation_main.html.slim (3.6ms)
+  Rendered application/_navigation_user.html.slim (1.4ms)
+  Rendered application/_navigation.html.slim (17.4ms)
+  Rendered application/_messages.html.slim (0.3ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 105ms (Views: 93.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 09:50:06 +0400
+Processing by DashboardController#index as HTML
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+  [1m[35mArticle Load (2.8ms)[0m  SELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC
+  Rendered dashboard/index.html.slim within layouts/application (13.3ms)
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered application/_navigation_main.html.slim (12.7ms)
+  Rendered application/_navigation_user.html.slim (1.1ms)
+  Rendered application/_navigation.html.slim (27.7ms)
+  Rendered application/_messages.html.slim (0.3ms)
+  Rendered application/_footer.html.slim (0.4ms)
+Completed 200 OK in 143ms (Views: 136.3ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-18 09:07:09 +0400
+  [1m[36mActiveRecord::SchemaMigration Load (7.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+  [1m[35m (18.8ms)[0m  SELECT COUNT(*) FROM "articles"
+  [1m[36mArticle Load (3.0ms)[0m  [1mSELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC[0m
+  Rendered dashboard/index.html.slim within layouts/application (207.8ms)
+  [1m[35mUser Load (30.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered application/_navigation_main.html.slim (272.5ms)
+  Rendered application/_navigation_user.html.slim (19.0ms)
+  Rendered application/_navigation.html.slim (362.2ms)
+  Rendered application/_messages.html.slim (14.4ms)
+  Rendered application/_footer.html.slim (10.1ms)
+Completed 200 OK in 1470ms (Views: 1376.0ms | ActiveRecord: 92.5ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-09-18 09:07:17 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Exists (2.3ms)[0m  SELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mArticle Load (1.2ms)[0m  [1mSELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = $1  ORDER BY "articles"."id" DESC[0m  [["user_id", 4]]
+  Rendered users_articles/index.html.slim within layouts/application (147.6ms)
+  Rendered application/_navigation_main.html.slim (2.7ms)
+  Rendered application/_navigation_user.html.slim (1.5ms)
+  Rendered application/_navigation.html.slim (17.0ms)
+  Rendered application/_messages.html.slim (0.4ms)
+  Rendered application/_footer.html.slim (0.4ms)
+Completed 200 OK in 251ms (Views: 211.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-19 21:57:37 +0400
+  [1m[36mActiveRecord::SchemaMigration Load (16.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+  [1m[35m (22.6ms)[0m  SELECT COUNT(*) FROM "articles"
+  [1m[36mArticle Load (3.1ms)[0m  [1mSELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC[0m
+  Rendered dashboard/index.html.slim within layouts/application (157.2ms)
+  [1m[35mUser Load (20.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.3ms)[0m  COMMIT
+  Rendered application/_navigation_main.html.slim (297.0ms)
+  Rendered application/_navigation.html.slim (320.2ms)
+Completed 401 Unauthorized in 709ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-19 21:57:39 +0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.slim (18.2ms)
+  Rendered devise/sessions/new.html.slim within layouts/application (191.6ms)
+  Rendered application/_navigation_main.html.slim (1.6ms)
+  Rendered application/_navigation_user.html.slim (15.8ms)
+  Rendered application/_navigation.html.slim (35.5ms)
+  Rendered application/_messages.html.slim (9.6ms)
+  Rendered application/_footer.html.slim (8.6ms)
+Completed 200 OK in 676ms (Views: 645.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-09-19 21:58:00 +0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlbE12HnZmjFLFlfLW5syCc13A6MbpGb/gBXmUqxDPc=", "user"=>{"email"=>"aalmukhametova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (21.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'aalmukhametova@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (1.1ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Completed 401 Unauthorized in 175ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-19 21:58:00 +0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.slim (3.0ms)
+  Rendered devise/sessions/new.html.slim within layouts/application (26.6ms)
+  Rendered application/_navigation_main.html.slim (1.0ms)
+  Rendered application/_navigation_user.html.slim (2.5ms)
+  Rendered application/_navigation.html.slim (19.8ms)
+  Rendered application/_messages.html.slim (0.5ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 116ms (Views: 107.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-19 21:58:09 +0400
+Processing by DashboardController#index as HTML
+  [1m[35m (1.8ms)[0m  SELECT COUNT(*) FROM "articles"
+  [1m[36mArticle Load (3.3ms)[0m  [1mSELECT "articles".* FROM "articles"   ORDER BY "articles"."id" DESC[0m
+  Rendered dashboard/index.html.slim within layouts/application (21.3ms)
+  Rendered application/_navigation_main.html.slim (0.9ms)
+  Rendered application/_navigation_user.html.slim (11.0ms)
+  Rendered application/_navigation.html.slim (28.3ms)
+  Rendered application/_messages.html.slim (0.4ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 116ms (Views: 110.2ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-19 21:58:15 +0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.slim (3.1ms)
+  Rendered devise/sessions/new.html.slim within layouts/application (30.8ms)
+  Rendered application/_navigation_main.html.slim (1.1ms)
+  Rendered application/_navigation_user.html.slim (2.2ms)
+  Rendered application/_navigation.html.slim (20.6ms)
+  Rendered application/_messages.html.slim (0.5ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 128ms (Views: 123.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation/new" for 127.0.0.1 at 2014-09-19 21:58:20 +0400
+Processing by Devise::ConfirmationsController#new as HTML
+  Rendered devise/shared/_links.html.slim (8.4ms)
+  Rendered devise/confirmations/new.html.slim within layouts/application (53.8ms)
+  Rendered application/_navigation_main.html.slim (1.2ms)
+  Rendered application/_navigation_user.html.slim (1.7ms)
+  Rendered application/_navigation.html.slim (21.3ms)
+  Rendered application/_messages.html.slim (0.4ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 160ms (Views: 158.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/confirmation" for 127.0.0.1 at 2014-09-19 21:58:25 +0400
+Processing by Devise::ConfirmationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlbE12HnZmjFLFlfLW5syCc13A6MbpGb/gBXmUqxDPc=", "user"=>{"email"=>"aalmukhametova@gmail.com"}, "commit"=>"Resend confirmation instructions"}
+  [1m[35mUser Load (4.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."unconfirmed_email" = 'aalmukhametova@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'aalmukhametova@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'ce63d54ee8279c1548330ad3411d85afef3af735632551a8abd56f2918a841f1'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "users" SET "confirmation_sent_at" = $1, "confirmation_token" = $2, "updated_at" = $3 WHERE "users"."id" = 4  [["confirmation_sent_at", "2014-09-19 17:58:26.718344"], ["confirmation_token", "ce63d54ee8279c1548330ad3411d85afef3af735632551a8abd56f2918a841f1"], ["updated_at", "2014-09-19 17:58:26.721431"]]
+  [1m[36m (9.2ms)[0m  [1mCOMMIT[0m
+  Rendered devise/mailer/confirmation_instructions.html.slim (12.1ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 63.2ms
+
+Sent mail to aalmukhametova@gmail.com (82.1ms)
+Date: Fri, 19 Sep 2014 21:58:26 +0400
+From: noreply@fs-rails-base.heroku.com
+Reply-To: noreply@fs-rails-base.heroku.com
+To: aalmukhametova@gmail.com
+Message-ID: <541c6ec2d4f0d_13e93fc9f22d532462981@albina-HP-Pavilion-dm1-Notebook-PC.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome Albina!
+</p>
+<p>
+  You can confirm your account email through the link below:
+</p>
+<p>
+  <a href="http://localhost:5000/users/confirmation?confirmation_token=aL_RxgzU1SGtYXDKjdpn">Confirm my account</a>
+</p>
+Redirected to http://localhost:5000/users/sign_in
+Completed 302 Found in 1029ms (ActiveRecord: 23.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-19 21:58:27 +0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.slim (3.9ms)
+  Rendered devise/sessions/new.html.slim within layouts/application (32.6ms)
+  Rendered application/_navigation_main.html.slim (0.9ms)
+  Rendered application/_navigation_user.html.slim (2.1ms)
+  Rendered application/_navigation.html.slim (30.7ms)
+  Rendered application/_messages.html.slim (0.5ms)
+  Rendered application/_footer.html.slim (0.4ms)
+Completed 200 OK in 158ms (Views: 152.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=aL_RxgzU1SGtYXDKjdpn" for 127.0.0.1 at 2014-09-19 21:58:35 +0400
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"aL_RxgzU1SGtYXDKjdpn"}
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'ce63d54ee8279c1548330ad3411d85afef3af735632551a8abd56f2918a841f1'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  UPDATE "users" SET "confirmation_token" = $1, "confirmed_at" = $2, "updated_at" = $3 WHERE "users"."id" = 4  [["confirmation_token", nil], ["confirmed_at", "2014-09-19 17:58:35.878283"], ["updated_at", "2014-09-19 17:58:35.881537"]]
+  [1m[36m (26.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:5000/users/sign_in
+Completed 302 Found in 57ms (ActiveRecord: 30.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-19 21:58:35 +0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.slim (2.7ms)
+  Rendered devise/sessions/new.html.slim within layouts/application (34.8ms)
+  Rendered application/_navigation_main.html.slim (1.1ms)
+  Rendered application/_navigation_user.html.slim (1.9ms)
+  Rendered application/_navigation.html.slim (26.8ms)
+  Rendered application/_messages.html.slim (0.6ms)
+  Rendered application/_footer.html.slim (0.4ms)
+Completed 200 OK in 147ms (Views: 142.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-09-19 21:58:46 +0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlbE12HnZmjFLFlfLW5syCc13A6MbpGb/gBXmUqxDPc=", "user"=>{"email"=>"aalmukhametova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (2.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'aalmukhametova@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (7.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 4  [["current_sign_in_at", "2014-09-19 17:58:46.302622"], ["sign_in_count", 2], ["updated_at", "2014-09-19 17:58:46.318298"]]
+  [1m[36m (32.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:5000/users_articles
+Completed 302 Found in 205ms (ActiveRecord: 44.4ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-09-19 21:58:46 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mArticle Load (1.4ms)[0m  SELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = $1  ORDER BY "articles"."id" DESC  [["user_id", 4]]
+  Rendered users_articles/index.html.slim within layouts/application (79.9ms)
+  Rendered application/_navigation_main.html.slim (3.1ms)
+  Rendered application/_navigation_user.html.slim (1.3ms)
+  Rendered application/_navigation.html.slim (17.3ms)
+  Rendered application/_messages.html.slim (0.5ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 162ms (Views: 149.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users_articles/7/edit" for 127.0.0.1 at 2014-09-19 21:58:55 +0400
+Processing by UsersArticlesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (1.5ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = $1 AND "articles"."id" = $2  ORDER BY "articles"."id" DESC LIMIT 1  [["user_id", 4], ["id", 7]]
+  Rendered source/_form_article_edit.html.slim (34.4ms)
+  Rendered users_articles/edit.html.slim within layouts/application (52.2ms)
+  Rendered application/_navigation_main.html.slim (2.5ms)
+  Rendered application/_navigation_user.html.slim (1.1ms)
+  Rendered application/_navigation.html.slim (18.3ms)
+  Rendered application/_messages.html.slim (0.6ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 141ms (Views: 128.6ms | ActiveRecord: 3.4ms)
+
+
+Started PATCH "/users_articles/7" for 127.0.0.1 at 2014-09-19 21:59:00 +0400
+Processing by UsersArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gtZN89MM59dJs+WsKBu1aqVSz7dPSXqHL8RNIr8l+5s=", "article"=>{"title"=>"", "body"=>"errthygukihj"}, "commit"=>"Save", "id"=>"7"}
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (1.6ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."user_id" = $1 AND "articles"."id" = $2  ORDER BY "articles"."id" DESC LIMIT 1  [["user_id", 4], ["id", 7]]
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+  Rendered source/_form_article_edit.html.slim (12.4ms)
+  Rendered users_articles/edit.html.slim within layouts/application (15.5ms)
+  Rendered application/_navigation_main.html.slim (2.1ms)
+  Rendered application/_navigation_user.html.slim (1.1ms)
+  Rendered application/_navigation.html.slim (16.3ms)
+  Rendered application/_messages.html.slim (0.3ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 122ms (Views: 91.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users_articles" for 127.0.0.1 at 2014-09-19 21:59:58 +0400
+Processing by UsersArticlesController#index as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Exists (1.2ms)[0m  SELECT  1 AS one FROM "articles"  WHERE "articles"."user_id" = $1 LIMIT 1  [["user_id", 4]]
+  [1m[36mArticle Load (1.3ms)[0m  [1mSELECT "articles".* FROM "articles"  WHERE "articles"."user_id" = $1  ORDER BY "articles"."id" DESC[0m  [["user_id", 4]]
+  Rendered users_articles/index.html.slim within layouts/application (14.6ms)
+  Rendered application/_navigation_main.html.slim (6.3ms)
+  Rendered application/_navigation_user.html.slim (1.0ms)
+  Rendered application/_navigation.html.slim (17.9ms)
+  Rendered application/_messages.html.slim (0.3ms)
+  Rendered application/_footer.html.slim (0.3ms)
+Completed 200 OK in 105ms (Views: 92.7ms | ActiveRecord: 6.0ms)

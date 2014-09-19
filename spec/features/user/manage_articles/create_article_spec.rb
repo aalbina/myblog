@@ -13,6 +13,9 @@ feature 'Create article' do
 
   scenario 'I create new article' do
     create_article_page.load
-    create_article_page.create_article('New article', 'Test text')
+    create_article_page.create_article(title: 'New article', body: '123545')
+
+    expect(create_article_page).to have_selector('.blue', text: 'New article')
+    expect(create_article_page).to have_selector('.text-16', text: '123545')
   end
 end

@@ -5,17 +5,21 @@ module UserArticle
 
     set_url '/users_articles/new'
 
-    section :top_bar, TopBar, '.top-bar'
+    element :save_button, 'input[type="submit"]'
 
-    element :save_button, 'input[type="submit"]', text: 'Сохранить'
-
-    def create_article(title, body)
+    def create_article(options)
       fill_form(
-        title: title,
-        body: body
+        :user,
+        attributes_for(:article)
+            .slice(*create_article_attributes)
+            .merge(options)
       )
 
       save_button.click
+    end
+
+    def create_article_attributes
+      %i(title body)
     end
   end
 end

@@ -5,6 +5,16 @@ FactoryGirl.define do
     full_name 'John Smith'
     password '123456'
     password_confirmation '123456'
+
+    factory :user_with_posts do
+      ignore do
+        posts_count 1
+      end
+
+      after(:create) do |user, evaluator|
+        create_list(:article, evaluator.posts_count, user: user)
+      end
+    end
   end
 
   trait :confirmed do
