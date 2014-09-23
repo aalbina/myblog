@@ -11,6 +11,6 @@ feature 'Create comment' do
   end
 
   scenario 'I create new comment' do
-  	expect(user.comment).to have_text('Test comment')
+    expect(user.comment).to have_text('Test comment')
   end
 end
