@@ -5,11 +5,11 @@ module UserArticle
 
     set_url '/users_articles/new'
 
-    element :save_button, 'input[type="submit"]'
+    element :save_button, 'input[type="submit"][value="Save"]'
 
     def create_article(options)
       fill_form(
-        :user,
+        :article,
         attributes_for(:article)
             .slice(*create_article_attributes)
             .merge(options)

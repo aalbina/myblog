@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 feature 'Manage article' do
-  let(:user) { create :user_with_posts, :confirmed }
-  let(:article) { create :article }
+  let(:user) { create :user_with_articles, :confirmed }
 
   let(:login_page) { Devise::Sessions::New.new }
   let(:edit_article_page) { UserArticle::Edit.new }

@@ -23,9 +23,17 @@ en:
   hello: "Hello world"
 
   titles:
-    application: Rails Base example site
+    application: Rails Base blog
     dashboard:
       index: Dashboard
+    pages:
+      articles: All articles
+      smone_artiles: "'s articles"
+      comments: Comments
+      edit_article: Editing article
+    forms:
+      new_article: Create new article
+      new_comment: Create new comment
     devise:
       registrations:
         new: Sign up
@@ -77,6 +85,10 @@ en:
       send: "Send"
       update: "Update"
       sure: "Are you sure?"
+      labels:
+        comment_text: Comment text
+        title: Title
+        body: Body
 
     home: 'Dashboard'
 
@@ -90,6 +102,20 @@ en:
         sign_out: 'Sign out'
         sign_up: 'Sign up'
         edit_profile: 'Edit profile'
+      articles:
+        show: Show
+        edit: Edit
+        delete: Delete
+      comments:
+        delete: Delete comment
+    articles:
+      no_articles: We have no articles now :(
+      no_your_articles: You have no articles now :(
+      create: 'Create first?'
+      created_at: Created at
+      by: by
+    comments:
+      no_comments: This article has no comments. Maybe you want add first? 
 
   time:
     formats:

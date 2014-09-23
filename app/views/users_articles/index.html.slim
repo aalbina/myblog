@@ -1,6 +1,7 @@
 .row
   .columns
-    h2.blue #{@user}'s articles
+    h2.blue 12335
+    <!-- h2.blue= #{@user} t('titles.pages.smone_articles') -->
 
 .row
   .medium-6.columns
@@ -8,18 +9,18 @@
       ul.list-unstyled
         - articles.each do |article|
           li
-            h3.blue = link_to article.title, article
-            p.text-16 =article.body
+            h3.blue= link_to article.title, article
+            p.text-16= article.body
 
             span
-              = link_to 'Show', users_article_path(article), class: 'btn_xs'
+              = link_to t('app.navigation.articles.show'), users_article_path(article), class: 'btn_xs'
             span
-              = link_to 'Edit', edit_users_article_path(article), class: 'btn_xs'
+              = link_to t('app.navigation.articles.edit'), edit_users_article_path(article), class: 'btn_xs'
             span
-              = link_to 'Delete', users_article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn_xs'
+              = link_to t('app.navigation.articles.delete'), users_article_path(article), method: :delete, data: {confirm: t('app.form.sure')}, class: 'btn_xs'
           br
 
     - else
-      p.text-16 You have no articles now :(
+      p.text-16= t('app.articles.no_your_articles')
 	    
-      = link_to 'Create first?', new_users_article_path, class: 'button expand'
+      = link_to t('app.articles.create'), new_users_article_path, class: 'button expand'

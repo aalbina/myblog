@@ -6,8 +6,8 @@
         li.red
           = message 
     
-  h3 Create new comment
-  = f.label :body, 'Comment text', class: 'text-16'
+  h3= t('titles.forms.new_comment')
+  = f.label :body, t('app.form.labels.comment_text'), class: 'text-16'
   = f.text_area :body, rows: 10
 
   = f.submit class: 'button [secondary]'

@@ -6,13 +6,23 @@ FactoryGirl.define do
     password '123456'
     password_confirmation '123456'
 
-    factory :user_with_posts do
+    factory :user_with_articles do
       ignore do
-        posts_count 1
+        articles_count 1
       end
 
       after(:create) do |user, evaluator|
-        create_list(:article, evaluator.posts_count, user: user)
+        create_list(:article, evaluator.articles_count, user: user)
+      end
+    end
+
+    factory :user_with_articles_and_comments do
+      ignore do
+        articles_count 1
+      end
+
+      after(:create) do |user, evaluator|
+        create_list(:article_with_comments, evaluator.articles_count, user: user)
       end
     end
   end

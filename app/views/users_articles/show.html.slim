@@ -2,9 +2,9 @@
   .medium-1.columns
     = link_to '<', users_articles_path, class: 'btn_back'
   .medium-11.columns
-    h2.blue =article.title
+    h2.blue= article.title
 
 .row
   .medium-6.columns
-    p.text-16 =article.body
+    p.text-16= article.body
     p.text-12 Created at #{article.created_at} by #{article.user}

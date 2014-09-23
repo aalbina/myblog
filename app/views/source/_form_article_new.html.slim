@@ -6,10 +6,10 @@
         li.red 
           = message
 
-  = f.label :title, class: 'text-16'
+  = f.label :title, t('app.form.labels.title'), class: 'text-16'
   = f.text_field :title
 
-  = f.label :body, class: 'text-16'
+  = f.label :body, t('app.form.labels.body'), class: 'text-16'
   = f.text_area :body, rows: 10
 
-  = f.submit 'Сохранить', class: 'button [secondary]' 
+  = f.submit t('app.form.save'), class: 'button [secondary]' 

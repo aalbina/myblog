@@ -2,28 +2,28 @@
   .medium-1.columns
     = link_to '<', articles_path, class: 'btn_back'
   .medium-11.columns
-    h2.blue =article.title
+    h2.blue= article.title
 
 .row
   .medium-6.columns
-    p.text-16 =article.body
-    p.text-12 Created at #{article.created_at} by #{article.user}
+    p.text-16= article.body
+    <!-- p.text-12= t('app.articles.created_at') #{article.created_at} t('app.articles.by') #{article.user} -->
 
 .row
   .medium-6.columns
-    h2 Comments:
+    h2= t('titles.pages.comments')
     - if article.comments.exists?
       - article.comments.each do |comment|
         - if comment.valid? 
           blockquote
-            p.text-16 =comment.body
+            p.text-16= comment.body
             cite 
-              =comment.user
+              = comment.user
             - if (current_user && comment.user_id == current_user.id) 
-              = link_to 'Delete comment', article_comment_path(article.id, comment.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn_xs'
+              = link_to t('app.navigation.comments.delete'), article_comment_path(article.id, comment.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn_xs'
 
     - else 
-      p.text-16 This article has no comments. Maybe you want add first?
+      p.text-16= t('app.comments.no_comments')
 
 .row
   .medium-6.columns

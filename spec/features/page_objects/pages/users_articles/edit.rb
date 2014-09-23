@@ -10,13 +10,13 @@ module UserArticle
     element :article_title, 'h2'
     element :article_body, 'p.text-16'
     element :edit_link, 'a.btn_xs', text: 'Edit'
-    element :update_button, 'input[value="Save"]'
+    element :update_button, 'input[type="submit"][value="Save"]'
     element :validation_error_alert, '.red'
     element :delete_link, 'a.btn_xs', text: 'Delete'
 
     def edit_article(options)
       fill_form(
-        :user,
+        :article,
         attributes_for(:article)
             .slice(*edit_article_attributes)
             .merge(options)
